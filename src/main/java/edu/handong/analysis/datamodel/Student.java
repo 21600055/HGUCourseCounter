@@ -9,5 +9,25 @@ public class Student {
 	private ArrayList<Course> coursesTaken;
 	private HashMap<String,Integer> semestersByYearAndSemester;
 	
-	public Student
+	public Student(String studentId)
+	{
+		
+	}
+	
+	public void addCourse(Course newRecord)
+	{
+		
+	}
+	
+	public HashMap<String,Integer> getSemesterByYearAndSemester()
+	{
+		
+	}
+	
+	public int getNumCourseNthSemester(int semester)
+	{
+		
+	}
+	
+	
 }
