@@ -2,6 +2,7 @@ package edu.handong.analysise.utils;
 
 import java.util.ArrayList;
 import 	java.io.*;
+import java.util.Scanner;
 
 public class Utils {
 	
@@ -11,33 +12,23 @@ public class Utils {
 		int i;
 		try {
 			
-			File csv= new File(file);
-			BufferedReader br = new BufferedReader(new FileReader(csv));
-            String line = "";
-            while((line=br.readLine())!=null)
+			Scanner inputStream =new Scanner(new File(file));
+			String line;
+            while(inputStream.hasNextLine())
             {
             	if(removeHeader)
             	{
             		removeHeader=false;
             		continue;
             	}
+            	line=inputStream.nextLine();
             	
             	aline.add(line);
             }
-            i=0;
             
-            while(i<aline.size())
-            {
-            	aline.get(i);
-            	i++;
-            }
-            br.close();
-            
-            
+            inputStream.close();
 		} catch(FileNotFoundException e) {
 			System.out.println("The file path does not exist. Please check your CLI argument!");
-		} catch(IOException e) {
-			
 		}
 		
 		return aline;
@@ -45,7 +36,18 @@ public class Utils {
 	
 	public static void writeAFile(ArrayList<String>lines,String targetFileName)
 	{
+		PrintWriter outputStream = null;
 		
+		try {
+			outputStream = new PrintWriter(targetFileName);
+		} catch(FileNotFoundException e) {
+			System.out.println("Error opening the file " + targetFileName);
+			System.exit(0);
+		}
+		int i;
+		for(i=0;i<lines.size();i++)
+		{
+			outputStream.println(lines.get(i));
+		}
 	}
-	
 }

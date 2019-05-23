@@ -13,7 +13,7 @@ import edu.handong.analysise.utils.Utils;
 
 public class HGUCoursePatternAnalyzer {
 
-	private HashMap<String,Student> students;
+	//private HashMap<String,Student> students;
 	
 	/**
 	 * This method runs our analysis logic to save the number courses taken by each student per semester in a result file.
@@ -24,20 +24,20 @@ public class HGUCoursePatternAnalyzer {
 		
 		try {
 			// when there are not enough arguments from CLI, it throws the NotEnoughArgmentException which must be defined by you.
-			if(args.length<2)
+			if(args.length<1)
 				throw new NotEnoughArgumentException();
 		} catch (NotEnoughArgumentException e) {
 			System.out.println(e.getMessage());
 			System.exit(0);
-		} catch (IOException e) {
-			System.out.println();
 		}
 		
 		String dataPath = args[0]; // csv file to be analyzed
 		String resultPath = args[1]; // the file path where the results are saved.
 		ArrayList<String> lines = Utils.getLines(dataPath, true);
-		
-		students = loadStudentCourseRecords(lines);
+		Utils.writeAFile(lines, resultPath);
+	}
+}
+		/*students = loadStudentCourseRecords(lines);
 		
 		// To sort HashMap entries by key values so that we can save the results by student ids in ascending order.
 		Map<String, Student> sortedStudents = new TreeMap<String,Student>(students); 
@@ -55,12 +55,12 @@ public class HGUCoursePatternAnalyzer {
 	 * @param lines
 	 * @return
 	 */
-	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) {
+	/*private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) {
 		
 		// TODO: Implement this method
 		
 		return null; // do not forget to return a proper variable.
-	}
+	}*/
 
 	/**
 	 * This method generate the number of courses taken by a student in each semester. The result file look like this:
@@ -75,10 +75,10 @@ public class HGUCoursePatternAnalyzer {
 	 * @param sortedStudents
 	 * @return
 	 */
-	private ArrayList<String> countNumberOfCoursesTakenInEachSemester(Map<String, Student> sortedStudents) {
+	/*private ArrayList<String> countNumberOfCoursesTakenInEachSemester(Map<String, Student> sortedStudents) {
 		
 		// TODO: Implement this method
 		
 		return null; // do not forget to return a proper variable.
 	}
-}
+}*/
