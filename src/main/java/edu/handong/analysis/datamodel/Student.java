@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Student {
 	
-	private studentId;
+	private String studentId;
 	private ArrayList<Course> coursesTaken;
 	private HashMap<String,Integer> semestersByYearAndSemester;
 	
@@ -21,12 +21,12 @@ public class Student {
 	
 	public HashMap<String,Integer> getSemesterByYearAndSemester()
 	{
-		
+		return;
 	}
 	
 	public int getNumCourseNthSemester(int semester)
 	{
-		
+		return;
 	}
 	
 	
