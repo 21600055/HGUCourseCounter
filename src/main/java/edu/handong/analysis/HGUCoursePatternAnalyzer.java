@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import java.io.IOException;
 
 import edu.handong.analysis.datamodel.Course;
 import edu.handong.analysis.datamodel.Student;
@@ -28,6 +29,8 @@ public class HGUCoursePatternAnalyzer {
 		} catch (NotEnoughArgumentException e) {
 			System.out.println(e.getMessage());
 			System.exit(0);
+		} catch (IOException e) {
+			System.out.println();
 		}
 		
 		String dataPath = args[0]; // csv file to be analyzed
