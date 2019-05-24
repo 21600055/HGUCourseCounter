@@ -13,7 +13,7 @@ import edu.handong.analysise.utils.Utils;
 
 public class HGUCoursePatternAnalyzer {
 
-	//private HashMap<String,Student> students;
+	private HashMap<String,Student> students;
 	
 	/**
 	 * This method runs our analysis logic to save the number courses taken by each student per semester in a result file.
@@ -34,10 +34,8 @@ public class HGUCoursePatternAnalyzer {
 		String dataPath = args[0]; // csv file to be analyzed
 		String resultPath = args[1]; // the file path where the results are saved.
 		ArrayList<String> lines = Utils.getLines(dataPath, true);
-		Utils.writeAFile(lines, resultPath);
-	}
-}
-		/*students = loadStudentCourseRecords(lines);
+		//Utils.writeAFile(lines, resultPath);
+		students = loadStudentCourseRecords(lines);
 		
 		// To sort HashMap entries by key values so that we can save the results by student ids in ascending order.
 		Map<String, Student> sortedStudents = new TreeMap<String,Student>(students); 
@@ -48,19 +46,26 @@ public class HGUCoursePatternAnalyzer {
 		// Write a file (named like the value of resultPath) with linesTobeSaved.
 		Utils.writeAFile(linesToBeSaved, resultPath);
 	}
-	
 	/**
 	 * This method create HashMap<String,Student> from the data csv file. Key is a student id and the corresponding object is an instance of Student.
 	 * The Student instance have all the Course instances taken by the student.
 	 * @param lines
 	 * @return
 	 */
-	/*private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) {
+	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) {
 		
 		// TODO: Implement this method
+		HashMap<String,Student> hashmap=new HashMap<String,Student>();
+		ArrayList<Course> course=new ArrayList<Course>();
+		for(String line:lines)
+		{
+			course.add(new Course(line));
+		}
 		
-		return null; // do not forget to return a proper variable.
-	}*/
+		//System.out.println(course.get(0).getCourse());
+		return hashmap; // do not forget to return a proper variable.
+	}
+
 
 	/**
 	 * This method generate the number of courses taken by a student in each semester. The result file look like this:
@@ -75,10 +80,10 @@ public class HGUCoursePatternAnalyzer {
 	 * @param sortedStudents
 	 * @return
 	 */
-	/*private ArrayList<String> countNumberOfCoursesTakenInEachSemester(Map<String, Student> sortedStudents) {
+	private ArrayList<String> countNumberOfCoursesTakenInEachSemester(Map<String, Student> sortedStudents) {
 		
 		// TODO: Implement this method
 		
 		return null; // do not forget to return a proper variable.
 	}
-}*/
+}

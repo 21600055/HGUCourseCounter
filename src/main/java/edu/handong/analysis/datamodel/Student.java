@@ -11,7 +11,7 @@ public class Student {
 	
 	public Student(String studentId)
 	{
-		
+		this.studentId=studentId;
 	}
 	
 	public void addCourse(Course newRecord)
@@ -21,12 +21,12 @@ public class Student {
 	
 	public HashMap<String,Integer> getSemesterByYearAndSemester()
 	{
-		return;
+		return semestersByYearAndSemester;
 	}
 	
 	public int getNumCourseNthSemester(int semester)
 	{
-		return;
+		return semester;
 	}
 	
 	
