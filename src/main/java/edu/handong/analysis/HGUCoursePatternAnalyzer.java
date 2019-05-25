@@ -36,7 +36,7 @@ public class HGUCoursePatternAnalyzer {
 		ArrayList<String> lines = Utils.getLines(dataPath, true);
 		//Utils.writeAFile(lines, resultPath);
 		students = loadStudentCourseRecords(lines);
-		System.out.println(students.get("1"));
+		System.out.println(students.get("0001"));
 	}
 	
 		// To sort HashMap entries by key values so that we can save the results by student ids in ascending order.
@@ -54,7 +54,7 @@ public class HGUCoursePatternAnalyzer {
 	 * @param lines
 	 * @return
 	 */
-	private HashMap<String,Student>  loadStudentCourseRecords(ArrayList<String> lines) {
+	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) {
 		
 		// TODO: Implement this method
 		HashMap<String,Student> hashmap=new HashMap<String,Student>();
@@ -72,17 +72,17 @@ public class HGUCoursePatternAnalyzer {
 				nodupli.add(course.get(i).getstudentId());
 			}//학번과 학생의 코스를 넣기//학번과 학생의 코스를 넣기
 		}
-		
+		//System.out.println(course.get(78).getstudentId());
 		for(int i=0,j=0;i<nodupli.size();i++)
 		{
 			Student student= new Student(nodupli.get(i));
-			while(true)
+			while(j<course.size())
 			{
 				if(course.get(j).getstudentId()!=nodupli.get(i))
 				{
 					break;
-				}
-				student.addCourse(course.get(j));
+				}                 
+				student.addCourse(new Course(lines.get(j)));
 				j++;
 			}
 			hashmap.put(nodupli.get(i),student);//학번과 학생의 코스를 넣기
