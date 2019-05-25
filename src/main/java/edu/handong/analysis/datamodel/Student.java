@@ -24,6 +24,11 @@ public class Student {
 		coursesTaken.add(newRecord);
 	}
 	
+	public ArrayList<Course> getCourse() {
+		
+		return coursesTaken;
+	}
+	
 	public HashMap<String,Integer> getSemesterByYearAndSemester()
 	{
 		
