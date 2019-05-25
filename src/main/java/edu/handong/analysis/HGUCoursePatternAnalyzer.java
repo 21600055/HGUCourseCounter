@@ -81,8 +81,8 @@ public class HGUCoursePatternAnalyzer {
 				if(course.get(j).getstudentId()!=nodupli.get(i))
 				{
 					break;
-				}                 
-				student.addCourse(new Course(lines.get(j)));
+				}                 //new Course(lines.get(j))
+				student.addCourse(course.get(j));
 				j++;
 			}
 			hashmap.put(nodupli.get(i),student);//학번과 학생의 코스를 넣기
