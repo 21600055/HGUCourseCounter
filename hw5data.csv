@@ -646,7 +646,7 @@ StudentID, YearMonthGraduated, FistMajor, SecondMajor, CourseCode, CourseName, C
 0009, 200902, Major3, Major4, GEK30009, 공동체리더십훈련6, 0.5, 2007, 1
 0009, 200902, Major3, Major4, ITP30005, Algorithms Analysis, 3.0, 2007, 1
 0009, 200902, Major3, Major4, ITP40001, Database System, 3.0, 2007, 1
-0009, 200902, Major3, Major4, ECE30076, 임베디드시스템프로그래밍, 3.0, 2007, 2
+0009, 200902, Major3, Major4, ECE30076, 임베디드시스템프로그래밍, 3.0, 2007, 2	
 0009, 200902, Major3, Major4, ECE30086, 컴퓨터네트워크, 3.0, 2007, 2
 0009, 200902, Major3, Major4, ECE30092, 공학프로젝트 기획, 2.0, 2007, 2
 0009, 200902, Major3, Major4, ECE40088, 창의 프로젝트 기획 특론, 3.0, 2007, 2

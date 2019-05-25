@@ -30,7 +30,6 @@ public class Utils {
 		} catch(FileNotFoundException e) {
 			System.out.println("The file path does not exist. Please check your CLI argument!");
 		}
-		
 		return aline;
 	}
 	

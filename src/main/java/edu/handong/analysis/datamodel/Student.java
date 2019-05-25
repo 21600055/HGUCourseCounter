@@ -12,22 +12,28 @@ public class Student {
 	public Student(String studentId)
 	{
 		this.studentId=studentId;
+	}	
+	
+	public String getStudentId()
+	{
+		return studentId;
 	}
 	
 	public void addCourse(Course newRecord)
 	{
-		
+		coursesTaken.add(newRecord);
 	}
 	
 	public HashMap<String,Integer> getSemesterByYearAndSemester()
 	{
+		
 		return semestersByYearAndSemester;
 	}
 	
 	public int getNumCourseNthSemester(int semester)
 	{
-		return semester;
+		int NumCourse=semestersByYearAndSemester.get(Integer.toString(semester));
+		return NumCourse;
 	}
-	
 	
 }
