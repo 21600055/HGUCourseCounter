@@ -58,11 +58,19 @@ public class HGUCoursePatternAnalyzer {
 		// TODO: Implement this method
 		HashMap<String,Student> hashmap=new HashMap<String,Student>();
 		ArrayList<Course> course=new ArrayList<Course>();
+		ArrayList<Course> nodupli=new ArrayList<Course>();
 		for(String line:lines)
 		{
 			course.add(new Course(line));
 		}
 		
+		for(int i=0;i<course.size();i++)
+		{
+			if(!nodupli.contains(course.get(i).getstudentId()))
+			{
+				nodupli.add(course.get(i).getstudentId());
+			}
+		}
 		Student student= new Student(course.get(0).getstudentId());
 		student.addCourse(course.get(i));
 		
