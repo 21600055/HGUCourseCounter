@@ -105,6 +105,7 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private ArrayList<String> countNumberOfCoursesTakenInEachSemester(Map<String, Student> sortedStudents) {
 		
+		
 		// TODO: Implement this method
 		ArrayList<String> rpath=new ArrayList<String>();
 		/*String first="StudentID, TotalNumberOfSemestersRegistered, Semester, NumCoursesTakenInTheSemester";
