@@ -14,11 +14,6 @@ public class Student {
 		this.studentId=studentId;
 		//semestersByYearAndSemester=getSemesterByYearAndSemester();
 	}	
-	
-	public Student()
-	{
-		
-	}
 	public void setStudentId(String studentId)
 	{
 		this.studentId=studentId;

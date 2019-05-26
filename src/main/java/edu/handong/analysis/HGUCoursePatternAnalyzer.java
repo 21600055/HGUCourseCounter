@@ -76,11 +76,12 @@ public class HGUCoursePatternAnalyzer {
 		
 		Student student= new Student(nodupli.get(0));
 		
-			for(String line:lines)
-			{
-					student.addCourse(new Course(line));
-			}
-		System.out.println(student.getCourse().get(0));
+		for(Course cs:course)
+		{
+			student.addCourse(cs);
+		}
+			
+		System.out.println(student.getCourse().get(1).getcourseName());
 		/*for(int i=0,j=0;i<nodupli.size();i++)
 		{
 			student.setStudentId(nodupli.get(i));
