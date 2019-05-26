@@ -5,15 +5,24 @@ import java.util.HashMap;
 
 public class Student {
 	
-	private String studentId;
+	private String studentId; 
 	private ArrayList<Course> coursesTaken;
 	private HashMap<String,Integer> semestersByYearAndSemester;
 	
 	public Student(String studentId)
 	{
 		this.studentId=studentId;
+		//semestersByYearAndSemester=getSemesterByYearAndSemester();
 	}	
 	
+	public Student()
+	{
+		
+	}
+	public void setStudentId(String studentId)
+	{
+		this.studentId=studentId;
+	}
 	public String getStudentId()
 	{
 		return studentId;
@@ -31,7 +40,10 @@ public class Student {
 	
 	public HashMap<String,Integer> getSemesterByYearAndSemester()
 	{
-		
+		//semestersByYearAndSemester.put(,);
+		/*HashMap<String,Integer> getSemester =new HashMap<String,Integer>();
+		String ;
+		for()*/
 		return semestersByYearAndSemester;
 	}
 	

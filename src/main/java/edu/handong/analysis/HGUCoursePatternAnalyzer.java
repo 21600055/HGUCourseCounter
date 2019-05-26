@@ -3,6 +3,7 @@ package edu.handong.analysis;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.io.IOException;
 
@@ -35,10 +36,9 @@ public class HGUCoursePatternAnalyzer {
 		String resultPath = args[1]; // the file path where the results are saved.
 		ArrayList<String> lines = Utils.getLines(dataPath, true);
 		//Utils.writeAFile(lines, resultPath);
-		students = loadStudentCourseRecords(lines);
-		System.out.println(students.get("0001"));
-	}
-	
+		/*students = */loadStudentCourseRecords(lines);
+		
+		
 		// To sort HashMap entries by key values so that we can save the results by student ids in ascending order.
 		//Map<String, Student> sortedStudents = new TreeMap<String,Student>(students); 
 		
@@ -47,14 +47,14 @@ public class HGUCoursePatternAnalyzer {
 		
 		// Write a file (named like the value of resultPath) with linesTobeSaved.
 		//Utils.writeAFile(linesToBeSaved, resultPath);
-//	}
+	}
 	/**
 	 * This method create HashMap<String,Student> from the data csv file. Key is a student id and the corresponding object is an instance of Student.
 	 * The Student instance have all the Course instances taken by the student.
 	 * @param lines
 	 * @return
 	 */
-	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) {
+	private /*HashMap<String,Student>*/void loadStudentCourseRecords(ArrayList<String> lines) {
 		
 		// TODO: Implement this method
 		HashMap<String,Student> hashmap=new HashMap<String,Student>();
@@ -70,12 +70,20 @@ public class HGUCoursePatternAnalyzer {
 			if(!nodupli.contains(course.get(i).getstudentId()))
 			{
 				nodupli.add(course.get(i).getstudentId());
-			}//학번과 학생의 코스를 넣기//학번과 학생의 코스를 넣기
+			}//중복 학번 제거
 		}
-		//System.out.println(course.get(78).getstudentId());
-		for(int i=0,j=0;i<nodupli.size();i++)
+		//System.out.println(course.get(0).getcourseName()+",");
+		
+		Student student= new Student(nodupli.get(0));
+		
+			for(String line:lines)
+			{
+					student.addCourse(new Course(line));
+			}
+		System.out.println(student.getCourse().get(0));
+		/*for(int i=0,j=0;i<nodupli.size();i++)
 		{
-			Student student= new Student(nodupli.get(i));
+			student.setStudentId(nodupli.get(i));
 			while(j<course.size())
 			{
 				if(course.get(j).getstudentId()!=nodupli.get(i))
@@ -86,12 +94,11 @@ public class HGUCoursePatternAnalyzer {
 				j++;
 			}
 			hashmap.put(nodupli.get(i),student);//학번과 학생의 코스를 넣기
-		}
+		}*/
 		//System.out.println(course.get(0).getstudentId());
-		return hashmap; // do not forget to return a proper variable.
+		//return hashmap; // do not forget to return a proper variable.*/
 	}
 }
-
 	/**
 	 * This method generate the number of courses taken by a student in each semester. The result file look like this:
 	 * StudentID, TotalNumberOfSemestersRegistered, Semester, NumCoursesTakenInTheSemester
