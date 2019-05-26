@@ -40,7 +40,7 @@ public class Utils {
 		try {
 			outputStream = new PrintWriter(targetFileName);
 		} catch(FileNotFoundException e) {
-			System.out.println("Error opening the file " + targetFileName);
+			System.out.println("The file path does not exist. Please check your CLI argument!");
 			System.exit(0);
 		}
 		int i;

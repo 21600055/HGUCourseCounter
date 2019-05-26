@@ -12,7 +12,6 @@ public class Student {
 	public Student(String studentId)
 	{
 		this.studentId=studentId;
-		//semestersByYearAndSemester=getSemesterByYearAndSemester();
 	}	
 	public void setStudentId(String studentId)
 	{
@@ -35,17 +34,14 @@ public class Student {
 	
 	public HashMap<String,Integer> getSemesterByYearAndSemester()
 	{
-		//semestersByYearAndSemester.put(,);
-		/*HashMap<String,Integer> getSemester =new HashMap<String,Integer>();
-		String ;
-		for()*/
-		return semestersByYearAndSemester;
+		HashMap<String,Integer> getsemester=new HashMap<String,Integer>();
+		return getsemester;
 	}
 	
 	public int getNumCourseNthSemester(int semester)
 	{
-		int NumCourse=semestersByYearAndSemester.get(Integer.toString(semester));
-		return NumCourse;
+		int numcourse=semester;
+		return numcourse;
 	}
 	
 }
