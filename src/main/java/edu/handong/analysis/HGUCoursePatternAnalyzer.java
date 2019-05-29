@@ -120,8 +120,16 @@ public class HGUCoursePatternAnalyzer {
 		String first="StudentID, TotalNumberOfSemestersRegistered, Semester, NumCoursesTakenInTheSemester";
 		rpath.add(first);
 		
-		
-		rpath.add(all);
+		for(String key:sortedStudents.keySet())
+		{
+			Student student= sortedStudents.get(key);
+			
+			for(int i=0;i<student.getCourse().size();i++)
+			{
+				all=student.getCourse().get(i).getstudentId()+
+			    rpath.add(all);
+			}
+		}
 		
 		//sortedStudents.get();
 		//rpath.add(sortedStudents.get());
