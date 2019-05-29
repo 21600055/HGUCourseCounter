@@ -35,17 +35,20 @@ public class HGUCoursePatternAnalyzer {
 		String dataPath = args[0]; // csv file to be analyzed
 		String resultPath = args[1]; // the file path where the results are saved.
 		ArrayList<String> lines = Utils.getLines(dataPath, true);
-		Utils.writeAFile(lines, resultPath);
-		//students = loadStudentCourseRecords(lines);
-		
+		//Utils.writeAFile(lines, resultPath);
+		students = loadStudentCourseRecords(lines);
+		/*for(int i=0;i<90;i++) 
+		{
+			System.out.println(students.get("0002").getCourse().get(i).getcourseName());
+		}*/
 		// To sort HashMap entries by key values so that we can save the results by student ids in ascending order.
-		//Map<String, Student> sortedStudents = new TreeMap<String,Student>(students); 
+		Map<String, Student> sortedStudents = new TreeMap<String,Student>(students); 
 		
 		// Generate result lines to be saved.
-		//ArrayList<String> linesToBeSaved = countNumberOfCoursesTakenInEachSemester(sortedStudents);
+		ArrayList<String> linesToBeSaved = countNumberOfCoursesTakenInEachSemester(sortedStudents);
 		
 		// Write a file (named like the value of resultPath) with linesTobeSaved.
-		//Utils.writeAFile(linesToBeSaved, resultPath);
+		Utils.writeAFile(linesToBeSaved, resultPath);
 	}
 	/**
 	 * This method create HashMap<String,Student> from the data csv file. Key is a student id and the corresponding object is an instance of Student.
@@ -54,29 +57,30 @@ public class HGUCoursePatternAnalyzer {
 	 * @return
 	 */
 	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) {
-		
 		// TODO: Implement this method
 		HashMap<String,Student> hashmap=new HashMap<String,Student>();
-		ArrayList<Course> list=new ArrayList<Course>();//학번별 리스트
+		//학번별 리스트
 		ArrayList<Course> course=new ArrayList<Course>();
 		ArrayList<String> nodupli=new ArrayList<String>();
-		Student student= new Student("0001");
 		
-		/*for(String line:lines)
+		for(String line:lines)
 		{
 			course.add(new Course(line));
 		}
 		
 		for(int i=0;i<course.size();i++)
 		{
-			if(!nodupli.contains(course.get(i)))
+			if(!nodupli.contains(course.get(i).getstudentId()))
 			{
 				nodupli.add(course.get(i).getstudentId());
 			}
 		}
 		
-		for(int i=0;;i++)
+		for(int i=0;i<nodupli.size();i++)
 		{
+			ArrayList<Course> list=new ArrayList<Course>();
+			Student student= new Student(nodupli.get(i));
+			
 			for(String line:lines)
 			{
 				if(student.getStudentId().equals(line.split(",")[0].trim()))
@@ -84,10 +88,15 @@ public class HGUCoursePatternAnalyzer {
 					list.add(new Course(line));
 				}
 			}
-			student.addCourse(list);
+			
+			for(int j=0;j<list.size();j++)
+			{	//System.out.println("list.get: " + list.get(j).getstudentId());
+				student.addCourse(list.get(j));
+			}
+			
 			hashmap.put(student.getStudentId(),student);
-		}*/
-		
+			
+		}
 		return hashmap; // do not forget to return a proper variable.*/
 	}
 	/**
@@ -105,14 +114,17 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private ArrayList<String> countNumberOfCoursesTakenInEachSemester(Map<String, Student> sortedStudents) {
 		
-		
 		// TODO: Implement this method
+		String all;
 		ArrayList<String> rpath=new ArrayList<String>();
-		/*String first="StudentID, TotalNumberOfSemestersRegistered, Semester, NumCoursesTakenInTheSemester";
+		String first="StudentID, TotalNumberOfSemestersRegistered, Semester, NumCoursesTakenInTheSemester";
 		rpath.add(first);
 		
-		sortedStudents.get()
-		//rpath.add(sortedStudents.get());*/
+		
+		rpath.add(all);
+		
+		//sortedStudents.get();
+		//rpath.add(sortedStudents.get());
 		return rpath; // do not forget to return a proper variable.
 	}
 }
