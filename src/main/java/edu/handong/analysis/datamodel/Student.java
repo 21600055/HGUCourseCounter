@@ -52,6 +52,7 @@ public class Student {
 			minsemester++;
 			yearandsemester=Integer.toString(minyear)+"-"+Integer.toString(minsemester);
 			semestersByYearAndSemester.put(yearandsemester,minsemester);
+			minsemester++;
 		}//입학년도와 학기 해시맵에 넣기
 		
 		return semestersByYearAndSemester;
@@ -60,8 +61,8 @@ public class Student {
 	public int getNumCourseNthSemester(int semester)
 	{
 		int numCourse=0;
-		String year;
-		String month;
+		String year=new String();
+		String month=new String();
 		for(String key:semestersByYearAndSemester.keySet())
 		{
 			Integer value=semestersByYearAndSemester.get(key);
@@ -74,9 +75,10 @@ public class Student {
 		
 		for(int i=0;i<coursesTaken.size();i++)
 		{
-			if(year.equals(coursesTaken.get(i).getyearMonthGraduated().substring(0,3)))
+			if(Integer.parseInt(year)==(coursesTaken.get(i).getyearTaken()))
 			{
-				if(month.contentEquals(coursesTaken.get(i).getyearMonthGraduated().substring(4,5)))
+				if((Integer.parseInt(month)==coursesTaken.get(i).getsemesterCourseTaken())||
+					(Integer.parseInt(month)==coursesTaken.get(i).getsemesterCourseTaken()-2))
 				{
 					numCourse++;
 				}
