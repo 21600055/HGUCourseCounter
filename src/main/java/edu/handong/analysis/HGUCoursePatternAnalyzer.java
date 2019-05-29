@@ -116,6 +116,9 @@ public class HGUCoursePatternAnalyzer {
 		
 		// TODO: Implement this method
 		String all;
+		String last;
+		String seme;
+		String ncourse;
 		ArrayList<String> rpath=new ArrayList<String>();
 		String first="StudentID, TotalNumberOfSemestersRegistered, Semester, NumCoursesTakenInTheSemester";
 		rpath.add(first);
@@ -123,16 +126,34 @@ public class HGUCoursePatternAnalyzer {
 		for(String key:sortedStudents.keySet())
 		{
 			Student student= sortedStudents.get(key);
+			HashMap<String,Integer> hash=new HashMap<String,Integer>();
+			hash=student.getSemesterByYearAndSemester();
+			int lastsemester=14;
+			
+			/*for(String key:hash.keySet())
+			{
+				Integer 
+			}*/
 			
 			for(int i=0;i<student.getCourse().size();i++)
 			{
-				all=student.getCourse().get(i).getstudentId()+
-			    rpath.add(all);
+				for(int j=1;j<=lastsemester;j++)
+				{
+					Integer a=new Integer(lastsemester);
+					last=a.toString();
+					Integer b=new Integer(j);
+					seme=b.toString();
+					Integer c=new Integer(student.getNumCourseNthSemester(j));
+					ncourse=c.toString();
+					all=student.getCourse().get(i).getstudentId()+", "+
+				        last+", "+
+					    seme+", "+
+				        ncourse;
+				    rpath.add(all);
+				}
 			}
 		}
 		
-		//sortedStudents.get();
-		//rpath.add(sortedStudents.get());
 		return rpath; // do not forget to return a proper variable.
 	}
 }
