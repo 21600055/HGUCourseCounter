@@ -128,27 +128,25 @@ public class HGUCoursePatternAnalyzer {
 			Student student= sortedStudents.get(key);
 			HashMap<String,Integer> hash=new HashMap<String,Integer>();
 			hash=student.getSemesterByYearAndSemester();
-			int lastsemester=14;
-			
-			/*for(String key:hash.keySet())
+			int lastsemester=0;
+			for(String key1:hash.keySet())
 			{
-				Integer 
-			}*/
+				Integer value=hash.get(key1);
+				if(lastsemester<value.intValue())
+				{
+					lastsemester=value.intValue();
+				}
+			}
 			
 			for(int i=0;i<student.getCourse().size();i++)
 			{
+				
 				for(int j=1;j<=lastsemester;j++)
 				{
-					Integer a=new Integer(lastsemester);
-					last=a.toString();
-					Integer b=new Integer(j);
-					seme=b.toString();
-					Integer c=new Integer(student.getNumCourseNthSemester(j));
-					ncourse=c.toString();
 					all=student.getCourse().get(i).getstudentId()+", "+
-				        last+", "+
-					    seme+", "+
-				        ncourse;
+					    lastsemester+", "+
+						j+", "+ 
+					    student.getNumCourseNthSemester(j);
 				    rpath.add(all);
 				}
 			}
