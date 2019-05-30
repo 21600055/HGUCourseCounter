@@ -116,42 +116,41 @@ public class HGUCoursePatternAnalyzer {
 		
 		// TODO: Implement this method
 		String all;
-		String last;
-		String seme;
-		String ncourse;
 		ArrayList<String> rpath=new ArrayList<String>();
 		String first="StudentID, TotalNumberOfSemestersRegistered, Semester, NumCoursesTakenInTheSemester";
 		rpath.add(first);
-		
+
 		for(String key:sortedStudents.keySet())
 		{
 			Student student= sortedStudents.get(key);
-			HashMap<String,Integer> hash=new HashMap<String,Integer>();
+			System.out.println(student.getStudentId());
+			HashMap<String, Integer> hash=new HashMap<String,Integer>();
 			hash=student.getSemesterByYearAndSemester();
+			Map<String, Integer> sorthash = new TreeMap<String,Integer>(hash);
 			int lastsemester=0;
-			for(String key1:hash.keySet())
+			
+			//System.out.println(student.getCourse().get(0).getcourseName());
+			for(String key1 : sorthash.keySet())
 			{
 				Integer value=hash.get(key1);
+				//System.out.println(value.intValue());
 				if(lastsemester<value.intValue())
 				{
 					lastsemester=value.intValue();
 				}
-			}
+			}//막학기 찾기
+			// System.out.println(lastsemester);
 			
-			for(int i=0;i<student.getCourse().size();i++)
+			for(int j=1;j<=lastsemester;j++)
 			{
-				
-				for(int j=1;j<=lastsemester;j++)
-				{
-					all=student.getCourse().get(i).getstudentId()+", "+
-					    lastsemester+", "+
-						j+", "+ 
-					    student.getNumCourseNthSemester(j);
-				    rpath.add(all);
-				}
+				all=student.getCourse().get(0).getstudentId()+", "+
+			    lastsemester+", "+
+				j+", "+ 					  
+	            student.getNumCourseNthSemester(j);
+			    rpath.add(all); 
 			}
+			System.out.println("다음 학생!!");
 		}
-		
 		return rpath; // do not forget to return a proper variable.
 	}
 }
