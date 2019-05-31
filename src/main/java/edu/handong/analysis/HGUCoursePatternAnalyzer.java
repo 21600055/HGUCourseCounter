@@ -149,7 +149,7 @@ public class HGUCoursePatternAnalyzer {
 	            student.getNumCourseNthSemester(j);
 			    rpath.add(all); 
 			}
-			System.out.println("다음 학생!!");
+			//System.out.println("다음 학생!!");
 		}
 		
 		return rpath; // do not forget to return a proper variable.

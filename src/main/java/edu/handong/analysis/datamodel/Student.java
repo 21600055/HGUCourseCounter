@@ -80,7 +80,7 @@ public class Student {
 				year=key.substring(0,4);
 				//System.out.println(year);
 				month=key.substring(5);
-				System.out.println(year+"-"+month+":"+value.intValue());
+				//System.out.println(year+"-"+month+":"+value.intValue());
 				
 			}
 		}//밸류값 읽어와서 년도랑 학기랑 같으면 키값 끊어서 year에 넣기
