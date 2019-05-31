@@ -37,7 +37,6 @@ public class Student {
 	
 	public HashMap<String,Integer> getSemesterByYearAndSemester()
 	{
-		int minyear=10000;
 		int minsemester=1;
 		int year;
 		int semester;
