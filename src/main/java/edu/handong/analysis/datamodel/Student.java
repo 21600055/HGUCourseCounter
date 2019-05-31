@@ -56,36 +56,20 @@ public class Student {
 			year=coursesTaken.get(i).getyearTaken();
 			semester=coursesTaken.get(i).getsemesterCourseTaken();
 			yearandsemester=Integer.toString(year)+"-"+Integer.toString(semester);
-			System.out.println(yearandsemester);
+			
 			if(!(temp.containsKey(yearandsemester)))
 			{
-				if((semester==1)||(semester==3))
-				{
-					temp.put(yearandsemester,1);
-				}
-				 
-				if((semester==2)||(semester==4))
-				{
-					temp.put(yearandsemester,2);
-				}
+					temp.put(yearandsemester,semester);	
 			}
 		}
 		Map<String,Integer> sorttemp=new TreeMap<String,Integer>(temp);
-		//임시 해시맵에 넣은다음, 정렬해서 뽑고  
+		//임시 해시맵에 넣은다음, 정렬해서 뽑고 
+		minsemester=1;
 		for(String key:sorttemp.keySet())
 		{
-			Integer value=sorttemp.get(key);
+			semestersByYearAndSemester.put(key,minsemester);
+			minsemester++;
 		}
-		
-		for(int i=minyear;i<=Integer.parseInt(coursesTaken.get(0).getyearMonthGraduated().substring(0,4));i++)
-		{
-			yearandsemester=Integer.toString(i)+"-"+Integer.toString(1);
-			semestersByYearAndSemester.put(yearandsemester,minsemester);
-			minsemester++;
-			yearandsemester=Integer.toString(i)+"-"+Integer.toString(2);
-			semestersByYearAndSemester.put(yearandsemester,minsemester);
-			minsemester++;
-		}//입학년도와 학기 해시맵에 넣기
 		
 		return semestersByYearAndSemester;
 	}
