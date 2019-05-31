@@ -44,6 +44,10 @@ public class Utils {
 			System.exit(0);
 		}
 		int i;
+		/*for(int j=0;j<lines.size();j++)
+		{
+			System.out.println(lines.get(j));
+		}*/
 		for(i=0;i<lines.size();i++)
 		{
 			outputStream.println(lines.get(i));

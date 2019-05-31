@@ -43,13 +43,6 @@ public class Student {
 		int semester;
 		String yearandsemester;
 		HashMap<String,Integer> temp=new HashMap<String,Integer>();
-		for(int i=0; i<coursesTaken.size();i++)
-		{
-			if(minyear>=coursesTaken.get(i).getyearTaken())
-			{
-				minyear=coursesTaken.get(i).getyearTaken();
-			}
-		}//입학년도 찾기
 		
 		for(int i=0;i<coursesTaken.size();i++)
 		{
@@ -88,17 +81,17 @@ public class Student {
 				year=key.substring(0,4);
 				//System.out.println(year);
 				month=key.substring(5);
-				//System.out.println(year+"-"+month+":"+value.intValue());
+				System.out.println(year+"-"+month+":"+value.intValue());
 				
 			}
 		}//밸류값 읽어와서 년도랑 학기랑 같으면 키값 끊어서 year에 넣기
+		
 		
 		for(int i=0;i<coursesTaken.size();i++)
 		{
 			if(Integer.parseInt(year)==(coursesTaken.get(i).getyearTaken()))
 			{
-				if((Integer.parseInt(month)==coursesTaken.get(i).getsemesterCourseTaken())||
-					(Integer.parseInt(month)==(coursesTaken.get(i).getsemesterCourseTaken()-2)))
+				if((Integer.parseInt(month)==coursesTaken.get(i).getsemesterCourseTaken()))
 				{
 					numCourse++;
 				}

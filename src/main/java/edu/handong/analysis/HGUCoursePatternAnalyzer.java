@@ -128,11 +128,11 @@ public class HGUCoursePatternAnalyzer {
 			hash=student.getSemesterByYearAndSemester();
 			Map<String, Integer> sorthash = new TreeMap<String,Integer>(hash);
 			int lastsemester=0;
-			
+			//System.out.println(key);
 			//System.out.println(student.getCourse().get(0).getcourseName());
 			for(String key1 : sorthash.keySet())
 			{
-				Integer value=hash.get(key1);
+				Integer value=sorthash.get(key1);
 				//System.out.println(value.intValue());
 				if(lastsemester<value.intValue())
 				{
@@ -140,7 +140,7 @@ public class HGUCoursePatternAnalyzer {
 				}
 			}//막학기 찾기
 			 //System.out.println(lastsemester);
-			
+			 //System.out.println(student.getCourse().get(0).getcourseName());
 			for(int j=1;j<=lastsemester;j++)
 			{
 				all=student.getCourse().get(0).getstudentId()+","+
@@ -149,8 +149,9 @@ public class HGUCoursePatternAnalyzer {
 	            student.getNumCourseNthSemester(j);
 			    rpath.add(all); 
 			}
-			//System.out.println("다음 학생!!");
+			System.out.println("다음 학생!!");
 		}
+		
 		return rpath; // do not forget to return a proper variable.
 	}
 }
