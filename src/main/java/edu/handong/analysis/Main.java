@@ -15,7 +15,6 @@ public class Main {
 	String startyear;
 	String endyear;
 	String opt;
-	String[] arg;
 	boolean help=false;
 	
 	public static void main(String[] args) {
@@ -30,6 +29,14 @@ public class Main {
 		
 		if(parseOptions(options,args))
 		{
+			System.out.println("You provided \"" + inputpath + "\" as the value of the option i");
+			System.out.println("You provided \"" + outputpath + "\" as the value of the option o");
+			System.out.println("You provided \"" + startyear + "\" as the value of the option s");
+			System.out.println("You provided \"" + endyear + "\" as the value of the option e");
+			System.out.println("You provided \"" + opt + "\" as the value of the option opt");
+			String[] arg= {inputpath,outputpath};
+			System.out.println("0번째 값은: "+arg[0]);
+			System.out.println("1번째 값은: "+arg[1]);
 			if(help)
 			{
 				printHelp(options);
@@ -38,8 +45,6 @@ public class Main {
 			
 			if(opt.equals("1"))
 			{
-				arg[0]=inputpath;
-				arg[1]=outputpath;
 				HGUCoursePatternAnalyzer analyzer = new HGUCoursePatternAnalyzer();
 				analyzer.run(arg);
 			}
@@ -124,6 +129,6 @@ public class Main {
 		HelpFormatter formatter = new HelpFormatter();
 		String header = "HGU Course Analyzer";
 		String footer ="";
-		formatter.printHelp("CLIExample", header, options, footer, true);
+		formatter.printHelp("HGU Course Analyzer", header, options, footer, true);
 	}
 }
