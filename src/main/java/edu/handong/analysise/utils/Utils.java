@@ -44,16 +44,11 @@ public class Utils {
 			System.exit(0);
 		}
 		int i;
-		/*for(int j=0;j<lines.size();j++)
-		{
-			System.out.println(lines.get(j));
-		}*/
-		//System.out.println(lines.size());
-		int ct=1;
+
 		for(i=0;i<lines.size();i++)
 		{
-			System.out.println(lines.get(i));
 			outputStream.println(lines.get(i));
 		}
+		outputStream.close();
 	}
 }
