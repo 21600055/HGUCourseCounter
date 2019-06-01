@@ -29,14 +29,7 @@ public class Main {
 		
 		if(parseOptions(options,args))
 		{
-			System.out.println("You provided \"" + inputpath + "\" as the value of the option i");
-			System.out.println("You provided \"" + outputpath + "\" as the value of the option o");
-			System.out.println("You provided \"" + startyear + "\" as the value of the option s");
-			System.out.println("You provided \"" + endyear + "\" as the value of the option e");
-			System.out.println("You provided \"" + opt + "\" as the value of the option opt");
 			String[] arg= {inputpath,outputpath};
-			System.out.println("0번째 값은: "+arg[0]);
-			System.out.println("1번째 값은: "+arg[1]);
 			if(help)
 			{
 				printHelp(options);
