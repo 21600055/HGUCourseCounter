@@ -134,6 +134,6 @@ public class Main {
 		HelpFormatter formatter = new HelpFormatter();
 		String header = "HGU Course Analyzer";
 		String footer ="";
-		formatter.printHelp("HGU Course Analyzer", header, options, footer, true);
+		formatter.printHelp("HGU Course Counter", header, options, footer, true);
 	}
 }
