@@ -6,7 +6,6 @@ import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
-import java.io.File;
 
 public class Main {
 	
@@ -15,6 +14,7 @@ public class Main {
 	String startyear;
 	String endyear;
 	String opt;
+	String courseName;
 	boolean help=false;
 	
 	public static void main(String[] args) {
@@ -29,7 +29,7 @@ public class Main {
 		
 		if(parseOptions(options,args))
 		{
-			String[] arg= {inputpath,outputpath};
+			String[] arg= {inputpath,outputpath,courseName,startyear,endyear};
 			if(help)
 			{
 				printHelp(options);
@@ -42,6 +42,11 @@ public class Main {
 				analyzer.run(arg);
 			}
 			
+			if(opt.equals("2"))
+			{
+				HGUCourseAnalyzer analyzer =new HGUCourseAnalyzer();
+				analyzer.run(arg);
+			}
 		}
 	}
 	
@@ -60,6 +65,7 @@ public class Main {
 			endyear=cmd.getOptionValue("e");
 			help = cmd.hasOption("h");
 			opt=cmd.getOptionValue("a");
+			courseName=cmd.getOptionValue("c");
 
 		} catch (Exception e) {
 			printHelp(options);
@@ -107,6 +113,12 @@ public class Main {
 		          .argName("End year for analysis")
 		          .required()
 		          .build());
+		
+		options.addOption(Option.builder("c").longOpt("coursecode")
+				.desc("Course code for '-a 2' option")
+				.hasArg()
+				.argName("course code")
+				.build());
 		
 		options.addOption(Option.builder("h").longOpt("help")
 		          .desc("Show a Help page")

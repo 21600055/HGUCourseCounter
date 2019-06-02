@@ -29,6 +29,7 @@ public class Utils {
             inputStream.close();
 		} catch(FileNotFoundException e) {
 			System.out.println("The file path does not exist. Please check your CLI argument!");
+			System.exit(0);
 		}
 		return aline;
 	}
